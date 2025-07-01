@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Play, Music, Calendar, BookOpen, Mail } from "lucide-react";
 import { useAudio } from "../contexts/AudioContext";

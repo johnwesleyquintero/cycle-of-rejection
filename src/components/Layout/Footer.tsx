@@ -1,6 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { Music, Instagram, Twitter, Youtube, Mail } from "lucide-react";
+import { Instagram, Twitter, Youtube, Mail } from "lucide-react";
+import logo from "../../../public/logo.svg";
 
 export function Footer() {
   return (
@@ -10,12 +10,16 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="p-2 bg-gradient-to-br from-brand-red to-brand-red-light rounded-lg">
-                <Music className="h-6 w-6 text-white" />
+              <div className="p-2 bg-gradient-to-br from-brand-red to-brand-red-light rounded-lg border border-black">
+                <img
+                  src={logo}
+                  alt="CYCLE OF REJECTION Logo"
+                  className="h-6 w-6 text-white"
+                />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-white">
-                  Cycle of Rejection
+                  CYCLE OF REJECTION
                 </h3>
                 <p className="text-sm text-gray-400">Official Band Page</p>
               </div>
@@ -75,7 +79,7 @@ export function Footer() {
         <div className="mt-8 pt-8 border-t border-brand-gray-lighter/20">
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2024 Cycle of Rejection. All rights reserved.
+              © 2024 CYCLE OF REJECTION. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 sm:mt-0">
               <Link

@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Play, Clock, Heart } from "lucide-react";
+import { Track } from "../contexts/AudioContext";
 import { useAudio } from "../contexts/AudioContext";
 import { albums, mockTracks } from "../data/mockData";
 
@@ -16,7 +17,7 @@ export function Discography() {
     return `${mins}:${secs.toString().padStart(2, "0")}`;
   };
 
-  const handlePlayAlbum = (albumTracks: any[]) => {
+  const handlePlayAlbum = (albumTracks: Track[]) => {
     dispatch({ type: "SET_QUEUE", payload: albumTracks });
     playTrack(albumTracks[0]);
   };

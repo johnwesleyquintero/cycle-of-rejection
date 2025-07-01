@@ -1,5 +1,4 @@
-import React from "react";
-import { Calendar, MapPin, ExternalLink, Clock } from "lucide-react";
+import { MapPin, ExternalLink, Clock } from "lucide-react";
 import { tourDates } from "../data/mockData";
 
 export function Tour() {

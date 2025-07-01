@@ -4,7 +4,7 @@ export const mockTracks: Track[] = [
   {
     id: "6",
     title: "Advance Scout (The Cynic's Eyes)",
-    artist: "Cycle of Rejection",
+    artist: "CYCLE OF REJECTION",
     album: "Break the Cycle",
     duration: 240,
     src: "/break-the-cycle-full-album/Advance Scout (The Cynic's Eyes).mp3",
@@ -13,7 +13,7 @@ export const mockTracks: Track[] = [
   {
     id: "7",
     title: "The Forge (Anvil of Anger)",
-    artist: "Cycle of Rejection",
+    artist: "CYCLE OF REJECTION",
     album: "Break the Cycle",
     duration: 270,
     src: "/break-the-cycle-full-album/The Forge (Anvil of Anger).mp3",
@@ -22,7 +22,7 @@ export const mockTracks: Track[] = [
   {
     id: "8",
     title: "The Quartermaster (Never Unarmed Again)",
-    artist: "Cycle of Rejection",
+    artist: "CYCLE OF REJECTION",
     album: "Break the Cycle",
     duration: 300,
     src: "/break-the-cycle-full-album/The Quartermaster (Never Unarmed Again).mp3",
@@ -31,7 +31,7 @@ export const mockTracks: Track[] = [
   {
     id: "9",
     title: "The Spymaster (A Colder War)",
-    artist: "Cycle of Rejection",
+    artist: "CYCLE OF REJECTION",
     album: "Break the Cycle",
     duration: 330,
     src: "/break-the-cycle-full-album/The Spymaster (A Colder War).mp3",
@@ -43,16 +43,16 @@ export const albums = [
   {
     id: "break-the-cycle",
     title: "Break the Cycle",
-    artist: "Cycle of Rejection",
+    artist: "CYCLE OF REJECTION",
     year: 2024,
     artwork: "/images/6.png",
     description:
-      "The latest album breaking free from the cycle of rejection and forging a new path.",
+      "The latest album breaking free from the CYCLE OF REJECTION and forging a new path.",
     tracks: [
       {
         id: "6",
         title: "Advance Scout (The Cynic's Eyes)",
-        artist: "Cycle of Rejection",
+        artist: "CYCLE OF REJECTION",
         album: "Break the Cycle",
         duration: 240,
         src: "/break-the-cycle-full-album/Advance Scout (The Cynic's Eyes).mp3",
@@ -61,7 +61,7 @@ export const albums = [
       {
         id: "7",
         title: "The Forge (Anvil of Anger)",
-        artist: "Cycle of Rejection",
+        artist: "CYCLE OF REJECTION",
         album: "Break the Cycle",
         duration: 270,
         src: "/break-the-cycle-full-album/The Forge (Anvil of Anger).mp3",
@@ -70,7 +70,7 @@ export const albums = [
       {
         id: "8",
         title: "The Quartermaster (Never Unarmed Again)",
-        artist: "Cycle of Rejection",
+        artist: "CYCLE OF REJECTION",
         album: "Break the Cycle",
         duration: 300,
         src: "/break-the-cycle-full-album/The Quartermaster (Never Unarmed Again).mp3",
@@ -79,7 +79,7 @@ export const albums = [
       {
         id: "9",
         title: "The Spymaster (A Colder War)",
-        artist: "Cycle of Rejection",
+        artist: "CYCLE OF REJECTION",
         album: "Break the Cycle",
         duration: 330,
         src: "/break-the-cycle-full-album/The Spymaster (A Colder War).mp3",

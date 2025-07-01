@@ -4,7 +4,7 @@
 
 ## The Concept
 
-- **Band:** Cycle Of Rejection
+- **Band:** CYCLE OF REJECTION
 - **EP Title:** Breaking The Cycle
 - **Genre:** Christian Metalcore
 - **Core Theme:** This EP is the sonic manifestation of the battle described in _The Scholar's Codex_. It is a four-part journey through the process of acknowledging one's demons—the scars left by a broken system—and then consciously deciding not to drown them, but to swim with them. Each track represents a different demon being harnessed and transformed from a source of pain into a weapon of strategic power. This is the war hymn for every person who has been told they are a problem when, in fact, they are the solution.

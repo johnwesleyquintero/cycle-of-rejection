@@ -1,4 +1,4 @@
-import React, {
+import {
   createContext,
   useContext,
   useReducer,
@@ -58,7 +58,7 @@ const initialState: AudioState = {
 
 function audioReducer(state: AudioState, action: AudioAction): AudioState {
   switch (action.type) {
-    case "SET_TRACK":
+    case "SET_TRACK": {
       const trackIndex = state.queue.findIndex(
         (track) => track.id === action.payload.id,
       );
@@ -68,6 +68,7 @@ function audioReducer(state: AudioState, action: AudioAction): AudioState {
         currentIndex: trackIndex,
         currentTime: 0,
       };
+    }
     case "PLAY":
       return { ...state, isPlaying: true };
     case "PAUSE":
@@ -80,11 +81,17 @@ function audioReducer(state: AudioState, action: AudioAction): AudioState {
       return { ...state, volume: action.payload };
     case "SET_QUEUE":
       return { ...state, queue: action.payload };
-    case "NEXT_TRACK":
+    case "NEXT_TRACK": {
       if (state.queue.length === 0) return state;
-      let nextIndex = state.currentIndex + 1;
+      const nextIndex = state.currentIndex + 1;
       if (nextIndex >= state.queue.length) {
-        nextIndex = state.repeat === "all" ? 0 : state.currentIndex;
+        return {
+          ...state,
+          currentTrack:
+            state.repeat === "all" ? state.queue[0] : state.currentTrack,
+          currentIndex: state.repeat === "all" ? 0 : state.currentIndex,
+          currentTime: 0,
+        };
       }
       return {
         ...state,
@@ -92,11 +99,23 @@ function audioReducer(state: AudioState, action: AudioAction): AudioState {
         currentIndex: nextIndex,
         currentTime: 0,
       };
-    case "PREVIOUS_TRACK":
+    }
+    case "PREVIOUS_TRACK": {
       if (state.queue.length === 0) return state;
-      let prevIndex = state.currentIndex - 1;
+      const prevIndex = state.currentIndex - 1;
       if (prevIndex < 0) {
-        prevIndex = state.repeat === "all" ? state.queue.length - 1 : 0;
+        return {
+          ...state,
+          currentTrack:
+            state.repeat === "all"
+              ? state.queue[state.queue.length - 1]
+              : state.currentTrack,
+          currentIndex:
+            state.repeat === "all"
+              ? state.queue.length - 1
+              : state.currentIndex,
+          currentTime: 0,
+        };
       }
       return {
         ...state,
@@ -104,6 +123,7 @@ function audioReducer(state: AudioState, action: AudioAction): AudioState {
         currentIndex: prevIndex,
         currentTime: 0,
       };
+    }
     case "SET_LOADING":
       return { ...state, isLoading: action.payload };
     case "SET_REPEAT":

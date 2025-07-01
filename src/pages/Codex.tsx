@@ -1,4 +1,3 @@
-import React from "react";
 import { BookOpen, Scroll, Eye, Heart } from "lucide-react";
 import * as Accordion from "@radix-ui/react-accordion";
 import { loreEntries } from "../data/codexData";
@@ -121,17 +120,18 @@ export function Codex() {
                               key={`${partIndex}-${pIndex}`}
                               className="text-gray-300 leading-relaxed mb-4"
                             >
-                              {parts.map((textPart, textPartIndex) =>
-                                textPartIndex % 2 === 1 ? (
-                                  <strong
-                                    key={textPartIndex}
-                                    className="text-white font-semibold"
-                                  >
-                                    {textPart}
-                                  </strong>
-                                ) : (
-                                  textPart
-                                ),
+                              {parts.map(
+                                (textPart: string, textPartIndex: number) =>
+                                  textPartIndex % 2 === 1 ? (
+                                    <strong
+                                      key={textPartIndex}
+                                      className="text-white font-semibold"
+                                    >
+                                      {textPart}
+                                    </strong>
+                                  ) : (
+                                    textPart
+                                  ),
                               )}
                             </p>
                           );

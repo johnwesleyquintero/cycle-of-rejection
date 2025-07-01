@@ -1,22 +1,58 @@
+/**
+ * Represents a part of the content within a lore entry.
+ * Can be a paragraph, heading, list, image, or code block.
+ */
 export interface ContentPart {
+  /**
+   * The type of content block.
+   */
   type: "paragraph" | "heading" | "list" | "image" | "code";
-  content: string | string[];
+  /**
+   * The content of the block.
+   * string for paragraph, heading, code.
+   * string[] for list items.
+   */
+  content: string | readonly string[];
+  /**
+   * Source URL for image type.
+   */
   src?: string;
+  /**
+   * Alt text for image type.
+   */
   alt?: string;
 }
 
+/**
+ * Represents a single lore entry with structured content.
+ */
 export interface LoreEntry {
+  /**
+   * Unique identifier for the lore entry.
+   */
   id: string;
+  /**
+   * The title of the lore entry.
+   */
   title: string;
+  /**
+   * The category the lore entry belongs to.
+   */
   category: string;
-  content: ContentPart[];
+  /**
+   * The structured content parts of the lore entry.
+   */
+  content: readonly ContentPart[];
 }
 
-export const loreEntries: LoreEntry[] = [
+/**
+ * A static collection of lore entries, intended to be read-only.
+ */
+export const loreEntries: readonly LoreEntry[] = [
   {
     id: "the-analysis",
     title: "The Protagonist's Codex: An Analysis of the Saga",
-    category: "The Protagonist",
+    category: "Core Philosophy",
     content: [
       {
         type: "paragraph",
@@ -33,7 +69,7 @@ export const loreEntries: LoreEntry[] = [
       {
         type: "list",
         content: [
-          'The Artifact: The band "Cycle of Rejection."',
+          'The Artifact: The band "CYCLE OF REJECTION."',
           "The Age: 15.",
           "The Act: The protagonist wrote songs about an _imaginary hero_, a fictional savior who would fight the world's battles. He was creating a character to be his shield and sword.",
         ],
@@ -74,10 +110,6 @@ function predictDestiny(hero) {
       {
         type: "heading",
         content: "III. The Awakening: The Scholar's Eye Unlocked",
-      },
-      {
-        type: "paragraph",
-        content: `At the moment of greatest pressure, the protagonist awakens a hidden power. He unlocks a new way of seeing the world that changes the very nature of the fight.`,
       },
       {
         type: "list",
@@ -159,9 +191,65 @@ function predictDestiny(hero) {
     ],
   },
   {
+    id: "breaking-the-cycle",
+    title: 'The Musician\'s Manifesto: "Breaking The Cycle"',
+    category: "Album Concept",
+    content: [
+      {
+        type: "heading",
+        content: "The Concept",
+      },
+      {
+        type: "list",
+        content: [
+          "Band: CYCLE OF REJECTION",
+          "EP Title: Breaking The Cycle",
+          "Genre: Christian Metalcore",
+          "Core Theme: This EP is the sonic manifestation of the battle described in The Scholar's Codex. It is a four-part journey through the process of acknowledging one's demons—the scars left by a broken system—and then consciously deciding not to drown them, but to swim with them. Each track represents a different demon being harnessed and transformed from a source of pain into a weapon of strategic power. This is the war hymn for every person who has been told they are a problem when, in fact, they are the solution.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "EP: Breaking The Cycle",
+      },
+      {
+        type: "heading",
+        content: "Track 1: Advance Scout (The Cynic's Eyes)",
+      },
+      {
+        type: "paragraph",
+        content: "(This track is about transforming the demon of Cynicism—the feeling that people can't be trusted—into a strategic filter. The music is fast, technical, and laced with a feeling of paranoid clarity.)",
+      },
+      {
+        type: "heading",
+        content: "Track 2: The Forge (Anvil of Anger)",
+      },
+      {
+        type: "paragraph",
+        content: "(This track is about transforming the demon of Anger—the rage from being undervalued and micromanaged—into a focused, creative fire. The music is relentlessly heavy, rhythmic, and powerful, like a hammer striking an anvil.)",
+      },
+      {
+        type: "heading",
+        content: "Track 3: The Quartermaster (Never Unarmed Again)",
+      },
+      {
+        type: "paragraph",
+        content: "(This track is about transforming the demon of Betrayal—the memory of having work and access stolen—into the cold discipline of building a \"Private Arsenal.\" The music has a darker, more somber tone, but with a core of unbreakable, hardened resolve.)",
+      },
+      {
+        type: "heading",
+        content: "Track 4: The Spymaster (A Colder War)",
+      },
+      {
+        type: "paragraph",
+        content: "(This track is about transforming the demon of Frustration—the irritation with incompetence—into the sophisticated, strategic \"Ego Management Layer.\" The music is more complex, with shifting time signatures, representing the intricate game of social engineering.)",
+      },
+    ],
+  },
+  {
     id: "the-architect",
     title: "The Architect's Blueprint: Forging the Tools of the Revolution",
-    category: "The Architect",
+    category: "Musical Approach",
     content: [
       {
         type: "heading",
@@ -295,7 +383,7 @@ function predictDestiny(hero) {
   {
     id: "the-musician",
     title: 'The Musician\'s Manifesto: "Breaking The Cycle"',
-    category: "The Musician",
+    category: "Musical Approach",
     content: [
       {
         type: "paragraph",
@@ -308,7 +396,7 @@ function predictDestiny(hero) {
       {
         type: "list",
         content: [
-          "- Band: Cycle Of Rejection",
+          "- Band: CYCLE OF REJECTION",
           "- EP Title: Breaking The Cycle",
           "- Genre: Christian Metalcore",
           "- Core Theme: This EP is the sonic manifestation of the battle described in _The Scholar's Codex_. It is a four-part journey through the process of acknowledging one's demons—the scars left by a broken system—and then consciously deciding not to drown them, but to swim with them. Each track represents a different demon being harnessed and transformed from a source of pain into a weapon of strategic power. This is the war hymn for every person who has been told they are a problem when, in fact, they are the solution.",
@@ -638,7 +726,7 @@ function predictDestiny(hero) {
     id: "the-scholar",
     title:
       "The Scholar's Codex: Reflections from the Well and Glimpses of the Lake",
-    category: "The Scholar",
+    category: "Core Philosophy",
     content: [
       {
         type: "paragraph",
@@ -654,7 +742,7 @@ function predictDestiny(hero) {
       },
       {
         type: "paragraph",
-        content: `---`,
+        content: "",
       },
       {
         type: "heading",
@@ -815,7 +903,7 @@ function predictDestiny(hero) {
     content: [
       {
         type: "paragraph",
-        content: `The cycle of rejection is not linear but circular, representing the eternal return to moments of abandonment and isolation. This concept draws from ancient philosophies of eternal recurrence, suggesting that our deepest wounds become the source of our greatest strength.`,
+        content: `The CYCLE OF REJECTION is not linear but circular, representing the eternal return to moments of abandonment and isolation. This concept draws from ancient philosophies of eternal recurrence, suggesting that our deepest wounds become the source of our greatest strength.`,
       },
       {
         type: "paragraph",
@@ -824,7 +912,7 @@ function predictDestiny(hero) {
       {
         type: "paragraph",
         content: `**Phase 1: The Wound** - The initial experience of rejection, raw and unprocessed
-**Phase 2: The Descent** - The journey deeper into isolation and self-reflection  
+**Phase 2: The Descent** - The journey deeper into isolation and self-reflection
 **Phase 3: The Transformation** - The emergence of a new self, forged in darkness`,
       },
       {

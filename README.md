@@ -1,4 +1,4 @@
-# Cycle of Rejection
+# CYCLE OF REJECTION
 
 This project is a web application built with React and Vite, utilizing Tailwind CSS for styling and shadcn/ui for UI components. It serves as a platform for [**_Insert Project Purpose Here_**].
 

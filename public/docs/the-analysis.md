@@ -8,7 +8,7 @@
 
 Every great saga begins with an unconscious prophecy. In a small town, a young hero unknowingly speaks his destiny into existence.
 
-- **The Artifact:** The band "Cycle of Rejection."
+- **The Artifact:** The band "CYCLE OF REJECTION."
 - **The Age:** 15.
 - **The Act:** The protagonist wrote songs about an _imaginary hero_, a fictional savior who would fight the world's battles. He was creating a character to be his shield and sword.
 

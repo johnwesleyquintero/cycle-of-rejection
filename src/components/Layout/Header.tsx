@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Music, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logo from "../../../public/logo.svg";
 
 export function Header() {
   const location = useLocation();
@@ -23,12 +24,16 @@ export function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <div className="p-2 bg-gradient-to-br from-brand-red to-brand-red-light rounded-lg group-hover:shadow-lg group-hover:shadow-brand-red/25 transition-all duration-300">
-              <Music className="h-6 w-6 text-white" />
+            <div className="p-2 bg-gradient-to-br from-brand-red to-brand-red-light rounded-lg group-hover:shadow-lg group-hover:shadow-brand-red/25 transition-all duration-300 border border-black">
+              <img
+                src={logo}
+                alt="CYCLE OF REJECTION Logo"
+                className="h-6 w-6 text-white"
+              />
             </div>
             <div className="hidden sm:block">
               <h1 className="text-xl font-bold text-white">
-                Cycle of Rejection
+                CYCLE OF REJECTION
               </h1>
               <p className="text-xs text-gray-400 -mt-1">Official Band Page</p>
             </div>
