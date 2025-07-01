@@ -1,16 +1,16 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Music, Menu, X } from 'lucide-react';
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Music, Menu, X } from "lucide-react";
 
 export function Header() {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'Discography', href: '/discography' },
-    { name: 'Tour', href: '/tour' },
-    { name: 'The Codex', href: '/codex' },
+    { name: "Home", href: "/" },
+    { name: "Discography", href: "/discography" },
+    { name: "Tour", href: "/tour" },
+    { name: "The Codex", href: "/codex" },
   ];
 
   const isActive = (href: string) => {
@@ -27,7 +27,9 @@ export function Header() {
               <Music className="h-6 w-6 text-white" />
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-white">Cycle of Rejection</h1>
+              <h1 className="text-xl font-bold text-white">
+                Cycle of Rejection
+              </h1>
               <p className="text-xs text-gray-400 -mt-1">Official Band Page</p>
             </div>
           </Link>
@@ -40,14 +42,16 @@ export function Header() {
                 to={item.href}
                 className={`px-3 py-2 text-sm font-medium transition-colors duration-200 relative group ${
                   isActive(item.href)
-                    ? 'text-brand-red'
-                    : 'text-gray-300 hover:text-white'
+                    ? "text-brand-red"
+                    : "text-gray-300 hover:text-white"
                 }`}
               >
                 {item.name}
                 <span
                   className={`absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-brand-red to-brand-red-light transition-transform duration-200 ${
-                    isActive(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                    isActive(item.href)
+                      ? "scale-x-100"
+                      : "scale-x-0 group-hover:scale-x-100"
                   }`}
                 />
               </Link>
@@ -59,7 +63,11 @@ export function Header() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden p-2 text-gray-300 hover:text-white transition-colors"
           >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
 
@@ -74,8 +82,8 @@ export function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-md ${
                     isActive(item.href)
-                      ? 'text-brand-red bg-brand-red/10'
-                      : 'text-gray-300 hover:text-white hover:bg-brand-gray-lighter/20'
+                      ? "text-brand-red bg-brand-red/10"
+                      : "text-gray-300 hover:text-white hover:bg-brand-gray-lighter/20"
                   }`}
                 >
                   {item.name}

@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useReducer, useRef, useEffect } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useReducer,
+  useRef,
+  useEffect,
+} from "react";
 
 export interface Track {
   id: string;
@@ -19,23 +25,23 @@ interface AudioState {
   queue: Track[];
   currentIndex: number;
   isLoading: boolean;
-  repeat: 'none' | 'track' | 'all';
+  repeat: "none" | "track" | "all";
   shuffle: boolean;
 }
 
 type AudioAction =
-  | { type: 'SET_TRACK'; payload: Track }
-  | { type: 'PLAY' }
-  | { type: 'PAUSE' }
-  | { type: 'SET_TIME'; payload: number }
-  | { type: 'SET_DURATION'; payload: number }
-  | { type: 'SET_VOLUME'; payload: number }
-  | { type: 'SET_QUEUE'; payload: Track[] }
-  | { type: 'NEXT_TRACK' }
-  | { type: 'PREVIOUS_TRACK' }
-  | { type: 'SET_LOADING'; payload: boolean }
-  | { type: 'SET_REPEAT'; payload: 'none' | 'track' | 'all' }
-  | { type: 'TOGGLE_SHUFFLE' };
+  | { type: "SET_TRACK"; payload: Track }
+  | { type: "PLAY" }
+  | { type: "PAUSE" }
+  | { type: "SET_TIME"; payload: number }
+  | { type: "SET_DURATION"; payload: number }
+  | { type: "SET_VOLUME"; payload: number }
+  | { type: "SET_QUEUE"; payload: Track[] }
+  | { type: "NEXT_TRACK" }
+  | { type: "PREVIOUS_TRACK" }
+  | { type: "SET_LOADING"; payload: boolean }
+  | { type: "SET_REPEAT"; payload: "none" | "track" | "all" }
+  | { type: "TOGGLE_SHUFFLE" };
 
 const initialState: AudioState = {
   currentTrack: null,
@@ -46,37 +52,39 @@ const initialState: AudioState = {
   queue: [],
   currentIndex: -1,
   isLoading: false,
-  repeat: 'none',
+  repeat: "none",
   shuffle: false,
 };
 
 function audioReducer(state: AudioState, action: AudioAction): AudioState {
   switch (action.type) {
-    case 'SET_TRACK':
-      const trackIndex = state.queue.findIndex(track => track.id === action.payload.id);
+    case "SET_TRACK":
+      const trackIndex = state.queue.findIndex(
+        (track) => track.id === action.payload.id,
+      );
       return {
         ...state,
         currentTrack: action.payload,
         currentIndex: trackIndex,
         currentTime: 0,
       };
-    case 'PLAY':
+    case "PLAY":
       return { ...state, isPlaying: true };
-    case 'PAUSE':
+    case "PAUSE":
       return { ...state, isPlaying: false };
-    case 'SET_TIME':
+    case "SET_TIME":
       return { ...state, currentTime: action.payload };
-    case 'SET_DURATION':
+    case "SET_DURATION":
       return { ...state, duration: action.payload };
-    case 'SET_VOLUME':
+    case "SET_VOLUME":
       return { ...state, volume: action.payload };
-    case 'SET_QUEUE':
+    case "SET_QUEUE":
       return { ...state, queue: action.payload };
-    case 'NEXT_TRACK':
+    case "NEXT_TRACK":
       if (state.queue.length === 0) return state;
       let nextIndex = state.currentIndex + 1;
       if (nextIndex >= state.queue.length) {
-        nextIndex = state.repeat === 'all' ? 0 : state.currentIndex;
+        nextIndex = state.repeat === "all" ? 0 : state.currentIndex;
       }
       return {
         ...state,
@@ -84,11 +92,11 @@ function audioReducer(state: AudioState, action: AudioAction): AudioState {
         currentIndex: nextIndex,
         currentTime: 0,
       };
-    case 'PREVIOUS_TRACK':
+    case "PREVIOUS_TRACK":
       if (state.queue.length === 0) return state;
       let prevIndex = state.currentIndex - 1;
       if (prevIndex < 0) {
-        prevIndex = state.repeat === 'all' ? state.queue.length - 1 : 0;
+        prevIndex = state.repeat === "all" ? state.queue.length - 1 : 0;
       }
       return {
         ...state,
@@ -96,11 +104,11 @@ function audioReducer(state: AudioState, action: AudioAction): AudioState {
         currentIndex: prevIndex,
         currentTime: 0,
       };
-    case 'SET_LOADING':
+    case "SET_LOADING":
       return { ...state, isLoading: action.payload };
-    case 'SET_REPEAT':
+    case "SET_REPEAT":
       return { ...state, repeat: action.payload };
-    case 'TOGGLE_SHUFFLE':
+    case "TOGGLE_SHUFFLE":
       return { ...state, shuffle: !state.shuffle };
     default:
       return state;
@@ -126,7 +134,7 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const playTrack = (track: Track) => {
-    dispatch({ type: 'SET_TRACK', payload: track });
+    dispatch({ type: "SET_TRACK", payload: track });
     if (audioRef.current) {
       audioRef.current.src = track.src;
       audioRef.current.load();
@@ -135,35 +143,35 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
 
   const playPause = () => {
     if (!audioRef.current) return;
-    
+
     if (state.isPlaying) {
       audioRef.current.pause();
-      dispatch({ type: 'PAUSE' });
+      dispatch({ type: "PAUSE" });
     } else {
       audioRef.current.play();
-      dispatch({ type: 'PLAY' });
+      dispatch({ type: "PLAY" });
     }
   };
 
   const nextTrack = () => {
-    dispatch({ type: 'NEXT_TRACK' });
+    dispatch({ type: "NEXT_TRACK" });
   };
 
   const previousTrack = () => {
-    dispatch({ type: 'PREVIOUS_TRACK' });
+    dispatch({ type: "PREVIOUS_TRACK" });
   };
 
   const seekTo = (time: number) => {
     if (audioRef.current) {
       audioRef.current.currentTime = time;
-      dispatch({ type: 'SET_TIME', payload: time });
+      dispatch({ type: "SET_TIME", payload: time });
     }
   };
 
   const setVolumeLevel = (volume: number) => {
     if (audioRef.current) {
       audioRef.current.volume = volume;
-      dispatch({ type: 'SET_VOLUME', payload: volume });
+      dispatch({ type: "SET_VOLUME", payload: volume });
     }
   };
 
@@ -172,15 +180,15 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
     if (!audio) return;
 
     const handleTimeUpdate = () => {
-      dispatch({ type: 'SET_TIME', payload: audio.currentTime });
+      dispatch({ type: "SET_TIME", payload: audio.currentTime });
     };
 
     const handleDurationChange = () => {
-      dispatch({ type: 'SET_DURATION', payload: audio.duration });
+      dispatch({ type: "SET_DURATION", payload: audio.duration });
     };
 
     const handleEnded = () => {
-      if (state.repeat === 'track') {
+      if (state.repeat === "track") {
         audio.currentTime = 0;
         audio.play();
       } else {
@@ -189,28 +197,28 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
     };
 
     const handleLoadStart = () => {
-      dispatch({ type: 'SET_LOADING', payload: true });
+      dispatch({ type: "SET_LOADING", payload: true });
     };
 
     const handleCanPlay = () => {
-      dispatch({ type: 'SET_LOADING', payload: false });
+      dispatch({ type: "SET_LOADING", payload: false });
       if (state.isPlaying) {
         audio.play();
       }
     };
 
-    audio.addEventListener('timeupdate', handleTimeUpdate);
-    audio.addEventListener('durationchange', handleDurationChange);
-    audio.addEventListener('ended', handleEnded);
-    audio.addEventListener('loadstart', handleLoadStart);
-    audio.addEventListener('canplay', handleCanPlay);
+    audio.addEventListener("timeupdate", handleTimeUpdate);
+    audio.addEventListener("durationchange", handleDurationChange);
+    audio.addEventListener("ended", handleEnded);
+    audio.addEventListener("loadstart", handleLoadStart);
+    audio.addEventListener("canplay", handleCanPlay);
 
     return () => {
-      audio.removeEventListener('timeupdate', handleTimeUpdate);
-      audio.removeEventListener('durationchange', handleDurationChange);
-      audio.removeEventListener('ended', handleEnded);
-      audio.removeEventListener('loadstart', handleLoadStart);
-      audio.removeEventListener('canplay', handleCanPlay);
+      audio.removeEventListener("timeupdate", handleTimeUpdate);
+      audio.removeEventListener("durationchange", handleDurationChange);
+      audio.removeEventListener("ended", handleEnded);
+      audio.removeEventListener("loadstart", handleLoadStart);
+      audio.removeEventListener("canplay", handleCanPlay);
     };
   }, [state.isPlaying, state.repeat]);
 
@@ -237,7 +245,7 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
 export function useAudio() {
   const context = useContext(AudioContext);
   if (!context) {
-    throw new Error('useAudio must be used within an AudioProvider');
+    throw new Error("useAudio must be used within an AudioProvider");
   }
   return context;
 }

@@ -1,14 +1,14 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Toaster } from 'sonner';
-import { AudioProvider } from './contexts/AudioContext';
-import { Header } from './components/Layout/Header';
-import { Footer } from './components/Layout/Footer';
-import { AudioPlayer } from './components/AudioPlayer/AudioPlayer';
-import { Home } from './pages/Home';
-import { Discography } from './pages/Discography';
-import { Tour } from './pages/Tour';
-import { Codex } from './pages/Codex';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Toaster } from "sonner";
+import { AudioProvider } from "./contexts/AudioContext";
+import { Header } from "./components/Layout/Header";
+import { Footer } from "./components/Layout/Footer";
+import { AudioPlayer } from "./components/AudioPlayer/AudioPlayer";
+import { Home } from "./pages/Home";
+import { Discography } from "./pages/Discography";
+import { Tour } from "./pages/Tour";
+import { Codex } from "./pages/Codex";
 
 function App() {
   return (
@@ -30,9 +30,9 @@ function App() {
             position="top-right"
             toastOptions={{
               style: {
-                background: '#1F1F1F',
-                color: 'white',
-                border: '1px solid #404040',
+                background: "#1F1F1F",
+                color: "white",
+                border: "1px solid #404040",
               },
             }}
           />

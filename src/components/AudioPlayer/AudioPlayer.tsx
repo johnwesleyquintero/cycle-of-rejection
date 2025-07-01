@@ -1,15 +1,31 @@
-import React from 'react';
-import { useAudio } from '../../contexts/AudioContext';
-import { Play, Pause, SkipBack, SkipForward, Volume2, Repeat, Shuffle } from 'lucide-react';
-import * as Slider from '@radix-ui/react-slider';
+import React from "react";
+import { useAudio } from "../../contexts/AudioContext";
+import {
+  Play,
+  Pause,
+  SkipBack,
+  SkipForward,
+  Volume2,
+  Repeat,
+  Shuffle,
+} from "lucide-react";
+import * as Slider from "@radix-ui/react-slider";
 
 export function AudioPlayer() {
-  const { state, playPause, nextTrack, previousTrack, seekTo, setVolumeLevel, dispatch } = useAudio();
+  const {
+    state,
+    playPause,
+    nextTrack,
+    previousTrack,
+    seekTo,
+    setVolumeLevel,
+    dispatch,
+  } = useAudio();
 
   const formatTime = (time: number) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
   };
 
   const handleSeek = (value: number[]) => {
@@ -21,14 +37,14 @@ export function AudioPlayer() {
   };
 
   const toggleRepeat = () => {
-    const modes: Array<'none' | 'track' | 'all'> = ['none', 'track', 'all'];
+    const modes: Array<"none" | "track" | "all"> = ["none", "track", "all"];
     const currentIndex = modes.indexOf(state.repeat);
     const nextMode = modes[(currentIndex + 1) % modes.length];
-    dispatch({ type: 'SET_REPEAT', payload: nextMode });
+    dispatch({ type: "SET_REPEAT", payload: nextMode });
   };
 
   const toggleShuffle = () => {
-    dispatch({ type: 'TOGGLE_SHUFFLE' });
+    dispatch({ type: "TOGGLE_SHUFFLE" });
   };
 
   if (!state.currentTrack) {
@@ -64,20 +80,20 @@ export function AudioPlayer() {
               onClick={toggleShuffle}
               className={`p-2 rounded-lg transition-all duration-200 ${
                 state.shuffle
-                  ? 'text-brand-red bg-brand-red/20'
-                  : 'text-gray-400 hover:text-white hover:bg-brand-gray-lighter/20'
+                  ? "text-brand-red bg-brand-red/20"
+                  : "text-gray-400 hover:text-white hover:bg-brand-gray-lighter/20"
               }`}
             >
               <Shuffle className="h-4 w-4" />
             </button>
-            
+
             <button
               onClick={previousTrack}
               className="p-2 text-gray-400 hover:text-white hover:bg-brand-gray-lighter/20 rounded-lg transition-all duration-200"
             >
               <SkipBack className="h-5 w-5" />
             </button>
-            
+
             <button
               onClick={playPause}
               disabled={state.isLoading}
@@ -89,20 +105,20 @@ export function AudioPlayer() {
                 <Play className="h-5 w-5 ml-0.5" />
               )}
             </button>
-            
+
             <button
               onClick={nextTrack}
               className="p-2 text-gray-400 hover:text-white hover:bg-brand-gray-lighter/20 rounded-lg transition-all duration-200"
             >
               <SkipForward className="h-5 w-5" />
             </button>
-            
+
             <button
               onClick={toggleRepeat}
               className={`p-2 rounded-lg transition-all duration-200 ${
-                state.repeat !== 'none'
-                  ? 'text-brand-red bg-brand-red/20'
-                  : 'text-gray-400 hover:text-white hover:bg-brand-gray-lighter/20'
+                state.repeat !== "none"
+                  ? "text-brand-red bg-brand-red/20"
+                  : "text-gray-400 hover:text-white hover:bg-brand-gray-lighter/20"
               }`}
             >
               <Repeat className="h-4 w-4" />

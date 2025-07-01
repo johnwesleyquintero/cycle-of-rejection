@@ -20,6 +20,7 @@ Follow these steps to set up and run the project locally.
 ### Prerequisites
 
 Make sure you have the following installed:
+
 - Node.js (LTS version recommended)
 - npm or yarn
 - Git
@@ -27,6 +28,7 @@ Make sure you have the following installed:
 ### Installation
 
 1.  **Clone the repository:**
+
     ```bash
     git clone https://github.com/johnwesleyquintero/cycle-of-rejection.git
     cd cycle-of-rejection

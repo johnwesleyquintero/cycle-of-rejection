@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Music, Instagram, Twitter, Youtube, Mail } from 'lucide-react';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Music, Instagram, Twitter, Youtube, Mail } from "lucide-react";
 
 export function Footer() {
   return (
@@ -14,13 +14,16 @@ export function Footer() {
                 <Music className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-white">Cycle of Rejection</h3>
+                <h3 className="text-lg font-bold text-white">
+                  Cycle of Rejection
+                </h3>
                 <p className="text-sm text-gray-400">Official Band Page</p>
               </div>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed max-w-md">
-              Immerse yourself in our dark atmospheric soundscapes. Experience the journey through 
-              rejection, acceptance, and rebirth through our musical narrative.
+              Immerse yourself in our dark atmospheric soundscapes. Experience
+              the journey through rejection, acceptance, and rebirth through our
+              musical narrative.
             </p>
           </div>
 
@@ -29,10 +32,10 @@ export function Footer() {
             <h4 className="text-white font-semibold mb-4">Navigate</h4>
             <ul className="space-y-2">
               {[
-                { name: 'Home', href: '/' },
-                { name: 'Discography', href: '/discography' },
-                { name: 'Tour Dates', href: '/tour' },
-                { name: 'The Codex', href: '/codex' },
+                { name: "Home", href: "/" },
+                { name: "Discography", href: "/discography" },
+                { name: "Tour Dates", href: "/tour" },
+                { name: "The Codex", href: "/codex" },
               ].map((item) => (
                 <li key={item.name}>
                   <Link
@@ -51,10 +54,10 @@ export function Footer() {
             <h4 className="text-white font-semibold mb-4">Connect</h4>
             <div className="flex space-x-3">
               {[
-                { icon: Instagram, href: '#', label: 'Instagram' },
-                { icon: Twitter, href: '#', label: 'Twitter' },
-                { icon: Youtube, href: '#', label: 'YouTube' },
-                { icon: Mail, href: '#', label: 'Email' },
+                { icon: Instagram, href: "#", label: "Instagram" },
+                { icon: Twitter, href: "#", label: "Twitter" },
+                { icon: Youtube, href: "#", label: "YouTube" },
+                { icon: Mail, href: "#", label: "Email" },
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
@@ -75,10 +78,16 @@ export function Footer() {
               © 2024 Cycle of Rejection. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 sm:mt-0">
-              <Link to="#" className="text-gray-400 hover:text-brand-red text-sm transition-colors">
+              <Link
+                to="#"
+                className="text-gray-400 hover:text-brand-red text-sm transition-colors"
+              >
                 Privacy Policy
               </Link>
-              <Link to="#" className="text-gray-400 hover:text-brand-red text-sm transition-colors">
+              <Link
+                to="#"
+                className="text-gray-400 hover:text-brand-red text-sm transition-colors"
+              >
                 Terms of Service
               </Link>
             </div>

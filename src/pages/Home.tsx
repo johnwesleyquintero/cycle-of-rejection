@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Play, Music, Calendar, BookOpen, Mail } from 'lucide-react';
-import { useAudio } from '../contexts/AudioContext';
-import { mockTracks, albums } from '../data/mockData';
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Play, Music, Calendar, BookOpen, Mail } from "lucide-react";
+import { useAudio } from "../contexts/AudioContext";
+import { mockTracks, albums } from "../data/mockData";
 
 export function Home() {
   const { dispatch, playTrack } = useAudio();
 
   useEffect(() => {
     // Set up the audio queue with all tracks
-    dispatch({ type: 'SET_QUEUE', payload: mockTracks });
+    dispatch({ type: "SET_QUEUE", payload: mockTracks });
   }, [dispatch]);
 
   const handlePlayFeatured = () => {
@@ -36,10 +36,10 @@ export function Home() {
               <br />
               <span className="text-brand-red">Rejection</span>
             </h1>
-            
+
             <p className="text-xl sm:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Immerse yourself in our dark atmospheric soundscapes. 
-              Experience the journey through rejection, acceptance, and rebirth.
+              Immerse yourself in our dark atmospheric soundscapes. Experience
+              the journey through rejection, acceptance, and rebirth.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
@@ -50,7 +50,7 @@ export function Home() {
                 <Play className="h-6 w-6" />
                 <span>Play Latest</span>
               </button>
-              
+
               <Link
                 to="/discography"
                 className="flex items-center space-x-3 border-2 border-brand-red text-brand-red hover:bg-brand-red hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
@@ -74,7 +74,9 @@ export function Home() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">Featured Albums</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Featured Albums
+            </h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
               Dive deep into our musical journey through darkness and redemption
             </p>
@@ -98,11 +100,17 @@ export function Home() {
                       <Play className="h-8 w-8 text-white" />
                     </div>
                   </div>
-                  
+
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white mb-2">{album.title}</h3>
-                    <p className="text-brand-red font-medium mb-2">{album.year}</p>
-                    <p className="text-gray-300 text-sm leading-relaxed">{album.description}</p>
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      {album.title}
+                    </h3>
+                    <p className="text-brand-red font-medium mb-2">
+                      {album.year}
+                    </p>
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      {album.description}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -124,7 +132,8 @@ export function Home() {
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">Tour Dates</h3>
               <p className="text-gray-300 leading-relaxed">
-                Catch us live on our upcoming tour. Experience the raw energy of our performances.
+                Catch us live on our upcoming tour. Experience the raw energy of
+                our performances.
               </p>
             </Link>
 
@@ -137,7 +146,8 @@ export function Home() {
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">The Codex</h3>
               <p className="text-gray-300 leading-relaxed">
-                Explore the deep lore and concepts that drive our musical narrative.
+                Explore the deep lore and concepts that drive our musical
+                narrative.
               </p>
             </Link>
 
@@ -145,9 +155,12 @@ export function Home() {
               <div className="flex items-center justify-center w-16 h-16 bg-brand-red rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
                 <Mail className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Stay Connected</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Stay Connected
+              </h3>
               <p className="text-gray-300 leading-relaxed mb-6">
-                Subscribe to our newsletter for exclusive content and early access.
+                Subscribe to our newsletter for exclusive content and early
+                access.
               </p>
               <button className="w-full bg-brand-red hover:bg-brand-red-light text-white py-3 rounded-lg font-semibold transition-colors duration-200">
                 Subscribe Now

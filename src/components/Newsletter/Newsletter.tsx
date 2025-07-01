@@ -1,21 +1,21 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { toast } from 'sonner';
-import { Mail, CheckCircle } from 'lucide-react';
+import React from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { toast } from "sonner";
+import { Mail, CheckCircle } from "lucide-react";
 
 const newsletterSchema = z.object({
-  email: z.string().email('Please enter a valid email address'),
-  firstName: z.string().min(2, 'First name must be at least 2 characters'),
-  interests: z.array(z.string()).min(1, 'Please select at least one interest'),
+  email: z.string().email("Please enter a valid email address"),
+  firstName: z.string().min(2, "First name must be at least 2 characters"),
+  interests: z.array(z.string()).min(1, "Please select at least one interest"),
 });
 
 type NewsletterForm = z.infer<typeof newsletterSchema>;
 
 export function Newsletter() {
   const [isSubmitted, setIsSubmitted] = React.useState(false);
-  
+
   const {
     register,
     handleSubmit,
@@ -28,14 +28,14 @@ export function Newsletter() {
   const onSubmit = async (data: NewsletterForm) => {
     try {
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      console.log('Newsletter subscription:', data);
-      toast.success('Successfully subscribed to our newsletter!');
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      console.log("Newsletter subscription:", data);
+      toast.success("Successfully subscribed to our newsletter!");
       setIsSubmitted(true);
       reset();
     } catch (error) {
-      toast.error('Something went wrong. Please try again.');
+      toast.error("Something went wrong. Please try again.");
     }
   };
 
@@ -47,10 +47,13 @@ export function Newsletter() {
             <CheckCircle className="h-8 w-8 text-green-400" />
           </div>
         </div>
-        <h3 className="text-2xl font-bold text-white mb-2">Welcome to the Journey</h3>
+        <h3 className="text-2xl font-bold text-white mb-2">
+          Welcome to the Journey
+        </h3>
         <p className="text-gray-300">
-          Thank you for subscribing! You'll receive exclusive content, early access to new releases, 
-          and behind-the-scenes insights into our musical process.
+          Thank you for subscribing! You'll receive exclusive content, early
+          access to new releases, and behind-the-scenes insights into our
+          musical process.
         </p>
         <button
           onClick={() => setIsSubmitted(false)}
@@ -70,20 +73,26 @@ export function Newsletter() {
             <Mail className="h-8 w-8 text-brand-red" />
           </div>
         </div>
-        <h3 className="text-2xl font-bold text-white mb-2">Join Our Inner Circle</h3>
+        <h3 className="text-2xl font-bold text-white mb-2">
+          Join Our Inner Circle
+        </h3>
         <p className="text-gray-300">
-          Get exclusive content, early access to new releases, and insights into our creative process.
+          Get exclusive content, early access to new releases, and insights into
+          our creative process.
         </p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         {/* Email */}
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-white mb-2"
+          >
             Email Address *
           </label>
           <input
-            {...register('email')}
+            {...register("email")}
             type="email"
             id="email"
             className="w-full px-4 py-3 bg-brand-gray-lighter/20 border border-brand-gray-lighter/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all duration-200"
@@ -96,18 +105,23 @@ export function Newsletter() {
 
         {/* First Name */}
         <div>
-          <label htmlFor="firstName" className="block text-sm font-medium text-white mb-2">
+          <label
+            htmlFor="firstName"
+            className="block text-sm font-medium text-white mb-2"
+          >
             First Name *
           </label>
           <input
-            {...register('firstName')}
+            {...register("firstName")}
             type="text"
             id="firstName"
             className="w-full px-4 py-3 bg-brand-gray-lighter/20 border border-brand-gray-lighter/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all duration-200"
             placeholder="Your first name"
           />
           {errors.firstName && (
-            <p className="mt-1 text-sm text-red-400">{errors.firstName.message}</p>
+            <p className="mt-1 text-sm text-red-400">
+              {errors.firstName.message}
+            </p>
           )}
         </div>
 
@@ -118,15 +132,18 @@ export function Newsletter() {
           </label>
           <div className="space-y-3">
             {[
-              { value: 'new-releases', label: 'New Music Releases' },
-              { value: 'tour-dates', label: 'Tour Announcements' },
-              { value: 'behind-scenes', label: 'Behind the Scenes Content' },
-              { value: 'merchandise', label: 'Exclusive Merchandise' },
-              { value: 'lore', label: 'Band Lore & Concepts' },
+              { value: "new-releases", label: "New Music Releases" },
+              { value: "tour-dates", label: "Tour Announcements" },
+              { value: "behind-scenes", label: "Behind the Scenes Content" },
+              { value: "merchandise", label: "Exclusive Merchandise" },
+              { value: "lore", label: "Band Lore & Concepts" },
             ].map((interest) => (
-              <label key={interest.value} className="flex items-center space-x-3 cursor-pointer group">
+              <label
+                key={interest.value}
+                className="flex items-center space-x-3 cursor-pointer group"
+              >
                 <input
-                  {...register('interests')}
+                  {...register("interests")}
                   type="checkbox"
                   value={interest.value}
                   className="w-5 h-5 text-brand-red bg-brand-gray-lighter/20 border-brand-gray-lighter/30 rounded focus:ring-brand-red focus:ring-2"
@@ -138,7 +155,9 @@ export function Newsletter() {
             ))}
           </div>
           {errors.interests && (
-            <p className="mt-1 text-sm text-red-400">{errors.interests.message}</p>
+            <p className="mt-1 text-sm text-red-400">
+              {errors.interests.message}
+            </p>
           )}
         </div>
 
@@ -163,7 +182,8 @@ export function Newsletter() {
       </form>
 
       <p className="text-xs text-gray-400 mt-4 text-center">
-        We respect your privacy. Unsubscribe at any time. No spam, just quality content.
+        We respect your privacy. Unsubscribe at any time. No spam, just quality
+        content.
       </p>
     </div>
   );
