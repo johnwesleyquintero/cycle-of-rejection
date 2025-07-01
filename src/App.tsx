@@ -8,6 +8,7 @@ import { Home } from "./pages/Home";
 import { Discography } from "./pages/Discography";
 import { Tour } from "./pages/Tour";
 import { Codex } from "./pages/Codex";
+import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 
 function App() {
   return (
@@ -16,12 +17,14 @@ function App() {
         <div className="min-h-screen bg-brand-black text-white">
           <Header />
           <main className="pb-24">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/discography" element={<Discography />} />
-              <Route path="/tour" element={<Tour />} />
-              <Route path="/codex" element={<Codex />} />
-            </Routes>
+            <ErrorBoundary>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/discography" element={<Discography />} />
+                <Route path="/tour" element={<Tour />} />
+                <Route path="/codex" element={<Codex />} />
+              </Routes>
+            </ErrorBoundary>
           </main>
           <Footer />
           <AudioPlayer />
