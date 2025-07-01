@@ -31,10 +31,10 @@ export function Home() {
           <div className="animate-fade-in">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6">
               <span className="bg-gradient-to-r from-white via-brand-red-lighter to-brand-red bg-clip-text text-transparent">
-                Cycle of
+                CYCLE OF
               </span>
               <br />
-              <span className="text-brand-red">Rejection</span>
+              <span className="text-brand-red">REJECTION</span>
             </h1>
 
             <p className="text-xl sm:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">

@@ -158,6 +158,7 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
     if (audioRef.current) {
       audioRef.current.src = track.src;
       audioRef.current.load();
+      dispatch({ type: "PLAY" }); // Ensure playback starts after setting a new track
     }
   };
 
@@ -199,6 +200,17 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
     const audio = audioRef.current;
     if (!audio) return;
 
+    if (state.currentTrack && audio.src !== state.currentTrack.src) {
+      audio.src = state.currentTrack.src;
+      audio.load();
+    }
+
+    if (state.isPlaying) {
+      audio.play().catch(error => console.error("Audio play failed:", error));
+    } else {
+      audio.pause();
+    }
+
     const handleTimeUpdate = () => {
       dispatch({ type: "SET_TIME", payload: audio.currentTime });
     };
@@ -222,8 +234,8 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
 
     const handleCanPlay = () => {
       dispatch({ type: "SET_LOADING", payload: false });
-      if (state.isPlaying) {
-        audio.play();
+      if (state.isPlaying && state.currentTrack) {
+        audio.play().catch(error => console.error("Audio play failed:", error));
       }
     };
 
@@ -240,7 +252,7 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
       audio.removeEventListener("loadstart", handleLoadStart);
       audio.removeEventListener("canplay", handleCanPlay);
     };
-  }, [state.isPlaying, state.repeat]);
+  }, [state.isPlaying, state.repeat, state.currentTrack]);
 
   return (
     <AudioContext.Provider
