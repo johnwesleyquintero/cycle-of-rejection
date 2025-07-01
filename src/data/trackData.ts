@@ -44,7 +44,7 @@ export const albums = [
     id: "break-the-cycle",
     title: "Break the Cycle",
     artist: "CYCLE OF REJECTION",
-    year: 2024,
+    year: 2025,
     artwork: "/images/6.png",
     description:
       "The latest album breaking free from the CYCLE OF REJECTION and forging a new path.",
@@ -92,7 +92,7 @@ export const albums = [
 export const tourDates = [
   {
     id: "1",
-    date: "2024-03-15",
+    date: "2025-03-15",
     venue: "The Underground",
     city: "New York",
     country: "USA",
@@ -101,7 +101,7 @@ export const tourDates = [
   },
   {
     id: "2",
-    date: "2024-03-22",
+    date: "2025-03-22",
     venue: "Metal Forge",
     city: "Los Angeles",
     country: "USA",
@@ -110,7 +110,7 @@ export const tourDates = [
   },
   {
     id: "3",
-    date: "2024-03-29",
+    date: "2025-03-29",
     venue: "Dark Stage",
     city: "Chicago",
     country: "USA",
@@ -119,7 +119,7 @@ export const tourDates = [
   },
   {
     id: "4",
-    date: "2024-04-05",
+    date: "2025-04-05",
     venue: "Void Concert Hall",
     city: "Seattle",
     country: "USA",
