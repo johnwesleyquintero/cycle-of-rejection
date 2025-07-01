@@ -1,5 +1,5 @@
 import { MapPin, ExternalLink, Clock } from "lucide-react";
-import { tourDates } from "../data/mockData";
+import { tourDates } from "../data/trackData";
 
 export function Tour() {
   const formatDate = (dateString: string) => {

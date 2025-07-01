@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Play, Music, Calendar, BookOpen, Mail } from "lucide-react";
 import { useAudio } from "../contexts/AudioContext";
-import { mockTracks, albums } from "../data/mockData";
+import { mockTracks, albums } from "../data/trackData";
 
 export function Home() {
   const { dispatch, playTrack } = useAudio();

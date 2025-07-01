@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Play, Clock, Heart } from "lucide-react";
 import { Track } from "../contexts/AudioContext";
 import { useAudio } from "../contexts/AudioContext";
-import { albums, mockTracks } from "../data/mockData";
+import { albums, mockTracks } from "../data/trackData";
 
 export function Discography() {
   const { dispatch, playTrack, state } = useAudio();
