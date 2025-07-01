@@ -87,8 +87,8 @@ export function Codex() {
               className={`px-6 py-2 rounded-full transition-all duration-300 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-brand-red-light focus:ring-offset-2 focus:ring-offset-brand-black ${
                 selectedCategory === category
                   ? "bg-brand-red text-white shadow-lg shadow-brand-red/20"
-                  // A subtle but clear style for active buttons
-                  : "bg-brand-gray-lighter/20 hover:bg-brand-red/20 text-gray-300 hover:text-white"
+                  : // A subtle but clear style for active buttons
+                    "bg-brand-gray-lighter/20 hover:bg-brand-red/20 text-gray-300 hover:text-white"
               }`}
             >
               {category}
@@ -175,7 +175,9 @@ export function Codex() {
                             >
                               {(part.content as string[]).map(
                                 (item, itemIndex) => (
-                                  <li key={itemIndex}>{renderWithLinks(item)}</li>
+                                  <li key={itemIndex}>
+                                    {renderWithLinks(item)}
+                                  </li>
                                 ),
                               )}
                             </ul>
@@ -202,9 +204,7 @@ export function Codex() {
         </Accordion.Root>
 
         {/* Call to Action (No changes needed) */}
-        <div className="mt-16 text-center">
-          {/* ... */}
-        </div>
+        <div className="mt-16 text-center">{/* ... */}</div>
       </div>
     </div>
   );

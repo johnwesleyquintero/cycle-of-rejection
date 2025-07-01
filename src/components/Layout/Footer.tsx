@@ -60,7 +60,11 @@ export function Footer() {
               {[
                 { icon: Instagram, href: "#", label: "Instagram" },
                 { icon: Twitter, href: "#", label: "Twitter" },
-                { icon: Youtube, href: "https://www.youtube.com/@CYCLEOFREJECTION", label: "YouTube" },
+                {
+                  icon: Youtube,
+                  href: "https://www.youtube.com/@CYCLEOFREJECTION",
+                  label: "YouTube",
+                },
                 { icon: Mail, href: "#", label: "Email" },
               ].map(({ icon: Icon, href, label }) => (
                 <a
