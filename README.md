@@ -1,17 +1,15 @@
 # CYCLE OF REJECTION
 
-This project is a web application built with React and Vite, utilizing Tailwind CSS for styling and shadcn/ui for UI components. It serves as a platform for [**_Insert Project Purpose Here_**].
+This project is a web application built with React and Vite, utilizing Tailwind CSS for styling and shadcn/ui for UI components. It serves as a platform for showcasing music, discography, and related content for the band "Cycle of Rejection." It includes features like an audio player, discography listings, and a codex for lore and information.
 
 ## Technologies Used
 
 - **Frontend:** React, Vite
-- **UI Libraries:** shadcn/ui, Tailwind CSS, lucide-react, class-variance-authority
-- **Data Handling:** papaparse (for CSV)
-- **Testing:** Jest, @testing-library/react
-- **Backend:** Node.js (Express) - _(Note: Backend components may be in a separate repository or integrated as API endpoints within this project.)_
-- **Databases:** MongoDB, PostgreSQL
-- **Infrastructure:** AWS (Lambda, S3, API Gateway), Docker
-- **Dev Tools:** VS Code, Postman, Git/GitHub, Jira, Notion
+- **UI Libraries:** shadcn/ui, Tailwind CSS, lucide-react, class-variance-authority, @radix-ui (various components)
+- **Form Handling & Validation:** react-hook-form, zod
+- **Routing:** react-router-dom
+- **Notifications:** sonner
+- **Dev Tools:** VS Code, Prettier, ESLint, Git/GitHub
 
 ## Getting Started
 
@@ -74,12 +72,15 @@ src/
 ├── App.tsx
 ├── components/
 │   ├── AudioPlayer/
+│   ├── ErrorBoundary/
+│   ├── Icons/
 │   ├── Layout/
 │   └── Newsletter/
 ├── contexts/
 │   └── AudioContext.tsx
 ├── data/
-│   └── mockData.ts
+│   ├── codexData.ts
+│   └── trackData.ts
 ├── index.css
 ├── main.tsx
 ├── pages/
@@ -103,4 +104,4 @@ Contributions are welcome! Please follow the standard Git workflow:
 
 ## License
 
-This project is licensed under the [**_Insert License Here_**] License.
+This project is licensed under the [MIT License](LICENSE).
